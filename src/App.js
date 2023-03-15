@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{ height: "50px", background: "red" }}>
+        <Link to="page1">
+          <button>Page 1</button>
+        </Link>
+        <Link to="page2">
+          <button>Page 2</button>
+        </Link>
+        {[3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
+          return (
+            <Link to={`page/${item}`}>
+              <button>Page {item}</button>
+            </Link>
+          )
+        })
+        }
+      </div>
+
     </div>
   );
 }
